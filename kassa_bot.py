@@ -1,3 +1,4 @@
+import os
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, ConversationHandler
 
 WEIGHT, RATE, EXCHANGE, DUTY = range(4)
@@ -54,7 +55,7 @@ def cancel(update, context):
     return ConversationHandler.END
 
 def main():
-    updater = Updater("8073661606:AAEngtpXFBel6B-AUomig09tjxK2btmu1dM", use_context=True)
+    updater = Updater(os.getenv("BOT_TOKEN"), use_context=True)
     dp = updater.dispatcher
 
     conv_handler = ConversationHandler(
